@@ -9,7 +9,7 @@ const EditProfile = ({
   profile: { profile, loading },
   createProfile,
   getCurrentProfile,
-  history
+  history,
 }) => {
   const [formData, setFormData] = useState({
     company: '',
@@ -23,7 +23,7 @@ const EditProfile = ({
     twitter: '',
     facebook: '',
     linkedin: '',
-    instagram: ''
+    instagram: '',
   });
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
@@ -44,7 +44,7 @@ const EditProfile = ({
       facebook: loading || !profile.social ? '' : profile.social.facebook,
       linkedin: loading || !profile.social ? '' : profile.social.linkedin,
       youtube: loading || !profile.social ? '' : profile.social.youtube,
-      instagram: loading || !profile.social ? '' : profile.social.instagram
+      instagram: loading || !profile.social ? '' : profile.social.instagram,
     });
   }, [loading, getCurrentProfile]);
 
@@ -57,13 +57,13 @@ const EditProfile = ({
     twitter,
     facebook,
     linkedin,
-    instagram
+    instagram,
   } = formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     createProfile(formData, history, true);
   };
@@ -75,19 +75,19 @@ const EditProfile = ({
         Perfil
       </p>
       <small>* = requerido</small>
-      <form action='' className='form' onSubmit={e => onSubmit(e)}>
+      <form action='' className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
           <select
             name='status'
             id=''
             value={status}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           >
-            <option value='0'>Seleccione su Título Profesional</option>
-            <option value='Cardiologo'>Cardiólogo</option>
-            <option value='Electrofisiologo'>Electrofisiólogo</option>
-            <option value='Tecnico'>Técnico</option>
-            <option value='Enfermero'>Enfermero</option>
+            <option value='0'>Elegí lo que más te represente</option>
+            <option value='Music'>Músic@</option>
+            <option value='Dibujante'>Dibujante</option>
+            <option value='Artensanx'>Artesan@</option>
+            <option value='Experimentdorx'>Experimentador@</option>
             <option value='Otro'>Otro</option>
           </select>
         </div>
@@ -97,7 +97,7 @@ const EditProfile = ({
             placeholder='Institución'
             name='company'
             value={company}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
           <small className='form-text'>
             Ingrese el nombre de la Institución para la que trabaja
@@ -109,7 +109,7 @@ const EditProfile = ({
             placeholder='Sitio Web'
             name='website'
             value={website}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div className='form-group'>
@@ -118,7 +118,7 @@ const EditProfile = ({
             placeholder='* Skills'
             name='skills'
             value={skills}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div className='form-group'>
@@ -126,7 +126,7 @@ const EditProfile = ({
             placeholder='Una biografía corta'
             name='bio'
             value={bio}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           ></textarea>
           <small className='form-text'>Contanos un poco sobre vos</small>
         </div>
@@ -150,7 +150,7 @@ const EditProfile = ({
                 placeholder='Twitter URL'
                 name='twitter'
                 value={twitter}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
             <div className='form-group social-input'>
@@ -160,7 +160,7 @@ const EditProfile = ({
                 placeholder='Facebook URL'
                 name='facebook'
                 value={facebook}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
             <div className='form-group social-input'>
@@ -170,7 +170,7 @@ const EditProfile = ({
                 placeholder='Linkedin URL'
                 name='linkedin'
                 value={linkedin}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
             <div className='form-group social-input'>
@@ -180,7 +180,7 @@ const EditProfile = ({
                 placeholder='Instagram URL'
                 name='instagram'
                 value={instagram}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
           </Fragment>
@@ -198,11 +198,11 @@ const EditProfile = ({
 EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  profile: state.profile
+const mapStateToProps = (state) => ({
+  profile: state.profile,
 });
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(

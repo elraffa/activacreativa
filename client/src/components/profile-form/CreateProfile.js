@@ -17,7 +17,7 @@ const CreateProfile = ({ createProfile, history }) => {
     twitter: '',
     facebook: '',
     linkedin: '',
-    instagram: ''
+    instagram: '',
   });
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
@@ -31,13 +31,13 @@ const CreateProfile = ({ createProfile, history }) => {
     twitter,
     facebook,
     linkedin,
-    instagram
+    instagram,
   } = FormData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     createProfile(formData, history);
   };
@@ -49,19 +49,19 @@ const CreateProfile = ({ createProfile, history }) => {
         Ingresá tus datos para tu Perfil
       </p>
       <small>* = requerido</small>
-      <form action='' className='form' onSubmit={e => onSubmit(e)}>
+      <form action='' className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
           <select
             name='status'
             id=''
             value={status}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           >
-            <option value='0'>Seleccione su Título Profesional</option>
-            <option value='Cardiologo'>Cardiólogo</option>
-            <option value='Electrofisiologo'>Electrofisiólogo</option>
-            <option value='Tecnico'>Técnico</option>
-            <option value='Enfermero'>Enfermero</option>
+            <option value='0'>Elegí lo que más te represente</option>
+            <option value='Music'>Músic@</option>
+            <option value='Dibujante'>Dibujante</option>
+            <option value='Artensanx'>Artesan@</option>
+            <option value='Experimentdorx'>Experimentador@</option>
             <option value='Otro'>Otro</option>
           </select>
         </div>
@@ -71,10 +71,10 @@ const CreateProfile = ({ createProfile, history }) => {
             placeholder='Institución'
             name='company'
             value={company}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
           <small className='form-text'>
-            Ingrese el nombre de la Institución para la que trabaja
+            Tenés un emprendimiento? Cómo se llama?
           </small>
         </div>
         <div className='form-group'>
@@ -83,7 +83,7 @@ const CreateProfile = ({ createProfile, history }) => {
             placeholder='Sitio Web'
             name='website'
             value={website}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div className='form-group'>
@@ -92,7 +92,7 @@ const CreateProfile = ({ createProfile, history }) => {
             placeholder='* Skills'
             name='skills'
             value={skills}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div className='form-group'>
@@ -100,7 +100,7 @@ const CreateProfile = ({ createProfile, history }) => {
             placeholder='Una biografía corta'
             name='bio'
             value={bio}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
           ></textarea>
           <small className='form-text'>Contanos un poco sobre vos</small>
         </div>
@@ -124,7 +124,7 @@ const CreateProfile = ({ createProfile, history }) => {
                 placeholder='Twitter URL'
                 name='twitter'
                 value={twitter}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
             <div className='form-group social-input'>
@@ -134,7 +134,7 @@ const CreateProfile = ({ createProfile, history }) => {
                 placeholder='Facebook URL'
                 name='facebook'
                 value={facebook}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
             <div className='form-group social-input'>
@@ -144,7 +144,7 @@ const CreateProfile = ({ createProfile, history }) => {
                 placeholder='Linkedin URL'
                 name='linkedin'
                 value={linkedin}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
             <div className='form-group social-input'>
@@ -154,7 +154,7 @@ const CreateProfile = ({ createProfile, history }) => {
                 placeholder='Instagram URL'
                 name='instagram'
                 value={instagram}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
           </Fragment>
@@ -172,7 +172,7 @@ const CreateProfile = ({ createProfile, history }) => {
 CreateProfile.propTypes = {};
 
 CreateProfile.propTypes = {
-  createProfile: PropTypes.func.isRequired
+  createProfile: PropTypes.func.isRequired,
 };
 
 export default connect(null, { createProfile })(withRouter(CreateProfile));
